@@ -28,6 +28,12 @@ If you want to reference the payments to a user, you can run the following migra
 $ rails g migration AddUserReferencesToEasyPayULatamPayuPayments user:references
 ```
 
+Don't forget to mount Engine in your routes.rb
+```ruby
+# config/routes.rb
+mount EasyPayULatam::Engine, at: "/easy_pay_u_latam"
+```
+
 ## Configuration
 First create a easy_pay_u_latam.rb in your config/initializers
 ```ruby
@@ -73,7 +79,7 @@ Finally create some method on any of you controllers that create the instance an
 			currency: "COP",
 			period: params[:period],
 			user_id: current_user.id,
-			description: "Pago #{period} Incalate",
+			description: "Your description here...",
 			start_date: Date.today,
 			end_date: end_date
 		)
