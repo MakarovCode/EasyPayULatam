@@ -82,7 +82,7 @@ Finally create some method on any of you controllers that create the instance an
 ```
 
 ## Contributing
-Contribution directions go here.
+This gem is stable but it have a lot of room for improvement, is my first gem so a lot of thing could be better, feel free to help and share.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
