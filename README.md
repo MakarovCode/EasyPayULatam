@@ -1,8 +1,5 @@
 # EasyPayULatam
-Short description and motivation.
-
-## Usage
-How to use my plugin.
+With this gem you can integrate the WebCheckout of PayU Latam with simple steps.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -11,14 +8,77 @@ Add this line to your application's Gemfile:
 gem 'easy_pay_u_latam'
 ```
 
-And then execute:
-```bash
-$ bundle
+We strongly recommend using Devise gem.
+```ruby
+gem 'devise'
 ```
 
-Or install it yourself as:
+And then execute:
 ```bash
-$ gem install easy_pay_u_latam
+$ bundle install
+```
+
+Then run
+```bash
+$ rails easy_pay_u_latam:install:migrations
+```
+
+If you want to reference the payments to a user, you can run the following migration.
+```bash
+$ rails g migration AddUserReferencesToEasyPayULatamPayuPayments user:references
+```
+
+## Configuration
+First create a easy_pay_u_latam.rb in your config/initializers
+```ruby
+# config/initializers/easy_pay_u_latam.rb
+EasyPayULatam.configure do |config|
+  config.api_key = "YOUR PAY U LATAM API KEY"
+  config.account_id = "YOUR PAY U ACCOUNT ID"
+  config.merchant_id = "YOUR PAY U MERCHANT ID"
+  config.placeholder = "SOME PLACE HOLDER FOR PAY U REFERENCE CODE"
+  config.root_url = "ROOT URL FOR PRODUCTION"
+  #Pay U will consume a Web Service and it can not be in localhost, you most use something like ngrok
+  config.test_root_url = "ROOT URL FOR TESTING"
+end
+```
+
+You can tell the engine which layout to use by overriding the application_controller
+```ruby
+# app/controllers/easy_pay_u_latam/application_controller.rb
+module EasyPayULatam
+  class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
+    layout "app/layouts/application"
+  end
+end
+```
+
+You also should override the engine application_mailer so it can send success and error emails after PayU confirmation.
+```ruby
+# app/mailers/easy_pay_u_latam/application_mailer.rb
+module EasyPayULatam
+  class ApplicationMailer < ActionMailer::Base
+    # You can also tell the engine which mailer layout to use
+    layout 'easy_pay_u_latam/mailer'
+    default from: 'Placeholder <test@example.com>'
+  end
+end
+```
+
+Finally create some method on any of you controllers that create the instance and data base record of the PayUPayment, you must especify amount, currency and description, period, start_date, and end_date are optionals if you are using this gem for subscriptions like payments.
+```ruby
+@payu_payment = EasyPayULatam::PayuPayment.create(
+			amount: amount,
+			currency: "COP",
+			period: params[:period],
+			user_id: current_user.id,
+			description: "Pago #{period} Incalate",
+			start_date: Date.today,
+			end_date: end_date
+		)
+
+		redirect_to "/easy_pay_u_latam/pay_u_payments/#{@payu_payment.id}/edit"
 ```
 
 ## Contributing
