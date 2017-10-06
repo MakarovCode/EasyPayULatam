@@ -1,19 +1,19 @@
 module EasyPayULatam
   class PayUPaymentsController < ApplicationController
 
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
 
     def index
-      @payu_payments = PayuPayment.where(user_id: current_user.id)
+      @payu_payments = PayuPayment.where(user_id: params[:user_id])
     end
 
     def show
-      @payu_payment = PayuPayment.where(user_id: current_user.id).find params[:id]
+      @payu_payment = PayuPayment.where(user_id: params[:user_id]).find params[:id]
     end
 
     def edit
       @payUConfig = EasyPayULatam.configuration
-      @payu_payment = PayuPayment.where(user_id: current_user.id).find params[:id]
+      @payu_payment = PayuPayment.where(user_id: params[:user_id]).find params[:id]
 
       @payu_payment.update_attribute :reference_code, "#{@payUConfig.placeholder}-#{@payu_payment.id}"
       @payu_payment.update_attribute :status, PayuPayment::PENDING
