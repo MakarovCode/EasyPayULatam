@@ -42,5 +42,5 @@
 <input name='signature'        type='hidden'  value='<%= @signature %>'>
 <input name='shippingCountry'  type='hidden'  value='CO'>
 
-<input name='responseUrl'      type='hidden'  value='<%= @payUConfig.root_url %>/easy_pay_u_latam/pay_u_payments/<%= @payu_payment.id %>'>
-<input name='confirmationUrl'  type='hidden'  value='<%= @payUConfig.root_url %>/easy_pay_u_latam/api/v1/pay_u_payments/<%= @payu_payment.id %>/confirmation.json'>
+<input name='responseUrl'      type='hidden'  value='<%= @payUConfig.root_url %>/easy_pay_u_latam/pay_u_payments/<%= @payu_payment.id %>?user_id=<%= params[:user_id]%>'>
+<input name='confirmationUrl'  type='hidden'  value='<%= @payUConfig.root_url %>/easy_pay_u_latam/api/v1/pay_u_payments/<%= @payu_payment.id %>/confirmation.json?user_id=<%= params[:user_id]%>'>

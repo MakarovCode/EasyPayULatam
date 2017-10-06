@@ -34,6 +34,12 @@ Don't forget to mount Engine in your routes.rb
 mount EasyPayULatam::Engine, at: "/easy_pay_u_latam"
 ```
 
+And precompile the engine assets (PayU logos).
+```ruby
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( easy_pay_u_latam/* )
+```
+
 ## Configuration
 First create a easy_pay_u_latam.rb in your config/initializers
 ```ruby
