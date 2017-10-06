@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference_code: MyString
+  description: MyString
+  amount: 1.5
+  tax: 1.5
+  tax_return_base: 1.5
+  currency: MyString
+  buyer_full_name: MyString
+  buyer_email: MyString
+  shipping_address: MyString
+  shipping_city: MyString
+  shipping_country: MyString
+  buyer_phone: MyString
+  transaction_state: 1
+  risk: 1.5
+  reference_pol: MyString
+  installments_units: 1
+  processing_date: 2017-09-29 16:12:07
+  cus: MyString
+  pse_bank: MyString
+  response_code: MyString
+  payment_method: MyString
+  payment_method_type: MyString
+  lap_transaction_state: MyString
+  message: MyString
+  authorization_code: MyString
+  transaction_id: MyString
+  trazability_code: MyString
+  state_pol: MyString
+
+two:
+  reference_code: MyString
+  description: MyString
+  amount: 1.5
+  tax: 1.5
+  tax_return_base: 1.5
+  currency: MyString
+  buyer_full_name: MyString
+  buyer_email: MyString
+  shipping_address: MyString
+  shipping_city: MyString
+  shipping_country: MyString
+  buyer_phone: MyString
+  transaction_state: 1
+  risk: 1.5
+  reference_pol: MyString
+  installments_units: 1
+  processing_date: 2017-09-29 16:12:07
+  cus: MyString
+  pse_bank: MyString
+  response_code: MyString
+  payment_method: MyString
+  payment_method_type: MyString
+  lap_transaction_state: MyString
+  message: MyString
+  authorization_code: MyString
+  transaction_id: MyString
+  trazability_code: MyString
+  state_pol: MyString

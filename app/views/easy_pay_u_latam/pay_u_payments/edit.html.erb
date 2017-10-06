@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Datos para el pago
+    </h3>
+  </div>
+  <div class="panel-body">
+    <form method='post' action='<%= @payUConfig.get_payu_url %>'>
+      <div class="row">
+        <%# se revisa que la clinica si tenga el permiso de pagar o las inscripciones esten abiertas para pagar %>
+
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <div class="col-md-12">
+              <%= image_tag 'easy_pay_u_latam/payu.png', style: "width: 100%"%>
+            </div>
+          </div>
+          <%= render "form" %>
+        </div>
+        <div class="col-md-5">
+          <div class="jumbotron">
+            <h1>
+              <small>Total:</small><br>
+              <%= number_to_currency @payu_payment.amount, precision: 0, delimiter: "." %>
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p class="text-center" style="margin-top: 20px;">
+              <button class="btn-payu" type="submit" style="background: none; border: none;">
+                <%= image_tag "easy_pay_u_latam/btn-payu.png", style: "width: 100%;" %>
+              </button>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
