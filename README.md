@@ -8,7 +8,7 @@ Add this line to your application's Gemfile:
 gem 'easy_pay_u_latam'
 ```
 
-We strongly recommend using Devise gem.
+We strongly recommend using Devise gem, this gem use current_user and some other devise methods for fetching user payments.
 ```ruby
 gem 'devise'
 ```
@@ -67,7 +67,7 @@ module EasyPayULatam
 end
 ```
 
-You also should override the engine application_mailer so it can send success and error emails after PayU confirmation.
+You should override the engine application_mailer so it can send success and error emails after PayU confirmation.
 ```ruby
 # app/mailers/easy_pay_u_latam/application_mailer.rb
 module EasyPayULatam
@@ -79,7 +79,9 @@ module EasyPayULatam
 end
 ```
 
-Finally create some method on any of you controllers that create the instance and data base record of the PayUPayment, you must especify amount, currency and description, period, start_date, and end_date are optionals if you are using this gem for subscriptions like payments.
+Finally create some method on any of you controllers that create the instance and data base record of the PayUPayment, you must especify amount, currency and description, period. The fields start_date, and end_date are optionals if you are using this gem for subscriptions like payments.
+
+This is the method your should link with an anchor or button, it will automatically redirect to the web checkout view you need before redirecting to PayU.
 ```ruby
 @payu_payment = EasyPayULatam::PayuPayment.create(
 			amount: amount,
