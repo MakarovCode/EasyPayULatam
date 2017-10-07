@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", '~> 5.0', '>= 5.0.0'
   s.add_dependency "rabl", '~> 0'
   s.add_dependency "jquery-rails", '~> 0'
-  s.add_dependency "bootstrap-sass", '~> 0'
-  s.add_dependency "sass-rails", '~> 0'
+  s.add_dependency "bootstrap-sass", '~> 3.3.6'
+  s.add_dependency "sass-rails", '~> 5.0'
 
   s.add_development_dependency "pg", '~> 0'
 end
