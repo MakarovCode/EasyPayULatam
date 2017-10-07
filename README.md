@@ -52,6 +52,7 @@ EasyPayULatam.configure do |config|
   config.root_url = "ROOT URL FOR PRODUCTION"
   #Pay U will consume a Web Service and it can not be in localhost, you most use something like ngrok
   config.test_root_url = "ROOT URL FOR TESTING"
+  config.currency_precision = 2 #By default is 0 for colombian peso
 end
 ```
 
