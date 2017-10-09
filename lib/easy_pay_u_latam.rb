@@ -1,5 +1,5 @@
 require "easy_pay_u_latam/engine"
-require "easy_pay_u_latam/configuration"
+require "easy_pay_u_latam/Configuration"
 
 module EasyPayULatam
   class << self
