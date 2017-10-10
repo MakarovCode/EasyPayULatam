@@ -56,7 +56,7 @@ module EasyPayULatam
     end
 
     def get_root_url
-      if Rails.env == "development" || Rails.env == "test"
+      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
         @test_root_url
       else
         @root_url
