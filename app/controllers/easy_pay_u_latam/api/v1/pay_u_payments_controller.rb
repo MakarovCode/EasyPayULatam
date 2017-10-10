@@ -91,11 +91,11 @@ module EasyPayULatam
 
         else
           PayUPaymentMailer.error(payu_payment.payer_name, payu_payment.email_buyer, payu_payment).deliver_now!
-          render status: 411, json: { status: 'OK', message: 'No existe referencia de pago', params: params }
+          render status: 200, json: { status: 'OK', message: 'No existe referencia de pago', params: params }
         end
       else
 
-        render status: 411, json: { status: 'OK', message: 'Error de seguridad signature', params: params }
+        render status: 200, json: { status: 'OK', message: 'Error de seguridad signature', params: params }
       end
 
     end
