@@ -24,7 +24,7 @@ module EasyPayULatam
     end
 
     def get_api_key
-      if Rails.env == "development" || Rails.env == "test"
+      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
         @test_api_key
       else
         @api_key
@@ -32,7 +32,7 @@ module EasyPayULatam
     end
 
     def get_merchant_id
-      if Rails.env == "development" || Rails.env == "test"
+      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
         @test_merchant_id
       else
         @merchant_id
@@ -40,7 +40,7 @@ module EasyPayULatam
     end
 
     def get_account_id
-      if Rails.env == "development" || Rails.env == "test"
+      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
         @test_account_id
       else
         @account_id
@@ -48,7 +48,7 @@ module EasyPayULatam
     end
 
     def get_payu_url
-      if Rails.env == "development" || Rails.env == "test"
+      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
         @test_payu_url
       else
         @payu_url
