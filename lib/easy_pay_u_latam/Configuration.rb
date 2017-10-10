@@ -24,7 +24,7 @@ module EasyPayULatam
     end
 
     def get_api_key
-      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
+      if ENV["RAILS_ENV"] != "production"
         @test_api_key
       else
         @api_key
@@ -32,7 +32,7 @@ module EasyPayULatam
     end
 
     def get_merchant_id
-      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
+      if ENV["RAILS_ENV"] != "production"
         @test_merchant_id
       else
         @merchant_id
@@ -40,7 +40,7 @@ module EasyPayULatam
     end
 
     def get_account_id
-      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
+      if ENV["RAILS_ENV"] != "production"
         @test_account_id
       else
         @account_id
@@ -48,7 +48,7 @@ module EasyPayULatam
     end
 
     def get_payu_url
-      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
+      if ENV["RAILS_ENV"] != "production"
         @test_payu_url
       else
         @payu_url
@@ -56,7 +56,7 @@ module EasyPayULatam
     end
 
     def get_root_url
-      if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
+      if ENV["RAILS_ENV"] != "production"
         @test_root_url
       else
         @root_url
