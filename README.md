@@ -93,7 +93,7 @@ This is the method your should link with an anchor or button, it will automatica
 			end_date: end_date
 		)
 
-		redirect_to "/easy_pay_u_latam/pay_u_payments/#{@payu_payment.id}/edit"
+		redirect_to "/easy_pay_u_latam/pay_u_payments/#{@payu_payment.id}/edit?user_id=#{current_user.id}"
 ```
 
 ## Contributing
