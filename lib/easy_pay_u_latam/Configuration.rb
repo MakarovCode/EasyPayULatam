@@ -26,7 +26,7 @@ module EasyPayULatam
     end
 
     def get_api_key
-      if @testing == false
+      if @testing == true
         @test_api_key
       else
         @api_key
@@ -34,7 +34,7 @@ module EasyPayULatam
     end
 
     def get_merchant_id
-      if @testing == false
+      if @testing == true
         @test_merchant_id
       else
         @merchant_id
@@ -42,7 +42,7 @@ module EasyPayULatam
     end
 
     def get_account_id
-      if @testing == false
+      if @testing == true
         @test_account_id
       else
         @account_id
@@ -50,7 +50,7 @@ module EasyPayULatam
     end
 
     def get_payu_url
-      if @testing == false
+      if @testing == true
         @test_payu_url
       else
         @payu_url
@@ -58,7 +58,7 @@ module EasyPayULatam
     end
 
     def get_root_url
-      if @testing == false
+      if @testing == true
         @test_root_url
       else
         @root_url
