@@ -1,6 +1,6 @@
 module EasyPayULatam
   class Configuration
-    attr_accessor :api_key, :merchant_id, :account_id, :placeholder, :root_url, :test_root_url, :payu_url, :test_api_key, :test_merchan_id, :test_account_id, :test_payu_url, :currency_precision
+    attr_accessor :api_key, :merchant_id, :account_id, :placeholder, :root_url, :test_root_url, :payu_url, :test_api_key, :test_merchan_id, :test_account_id, :test_payu_url, :currency_precision, :testing
 
     def initialize
       # Path for PayU responses
