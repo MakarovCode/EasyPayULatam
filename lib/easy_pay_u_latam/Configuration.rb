@@ -21,10 +21,12 @@ module EasyPayULatam
       @test_merchant_id = "508029"
       @test_account_id = "512321"
       @test_payu_url = "https://sandbox.gateway.payulatam.com/ppp-web-gateway/"
+
+      @testing = false
     end
 
     def get_api_key
-      if Rails.env != "production"
+      if @testing == false
         @test_api_key
       else
         @api_key
@@ -32,7 +34,7 @@ module EasyPayULatam
     end
 
     def get_merchant_id
-      if Rails.env != "production"
+      if @testing == false
         @test_merchant_id
       else
         @merchant_id
@@ -40,7 +42,7 @@ module EasyPayULatam
     end
 
     def get_account_id
-      if Rails.env != "production"
+      if @testing == false
         @test_account_id
       else
         @account_id
@@ -48,7 +50,7 @@ module EasyPayULatam
     end
 
     def get_payu_url
-      if Rails.env != "production"
+      if @testing == false
         @test_payu_url
       else
         @payu_url
@@ -56,7 +58,7 @@ module EasyPayULatam
     end
 
     def get_root_url
-      if Rails.env != "production"
+      if @testing == false
         @test_root_url
       else
         @root_url
