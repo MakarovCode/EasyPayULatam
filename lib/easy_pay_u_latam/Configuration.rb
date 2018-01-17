@@ -20,7 +20,7 @@ module EasyPayULatam
       @test_api_key = "4Vj8eK4rloUd272L48hsrarnUA"
       @test_merchant_id = "508029"
       @test_account_id = "512321"
-      @test_payu_url = "https://sandbox.gateway.payulatam.com/ppp-web-gateway/"
+      @test_payu_url = "https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu"
 
       @testing = false
     end
