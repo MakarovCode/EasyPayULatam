@@ -1,0 +1,50 @@
+<div class="my-profile-info-text">
+  <h2 class="h4">
+    <i class="fas fa-credit-card icon-full-blue"></i> Medios de pago
+  </h2>
+  <br/>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-8">
+      <%= render "easy_pay_u_latam/pay_u_payments/cards/form" %>
+    </div>
+    <div class="col-md-12">
+      <table class="table">
+        <tr>
+          <th>
+            Número de tajeta
+          </th>
+          <th>
+            Nombre
+          </th>
+          <th class="text-center">
+            Tipo
+          </th>
+          <th class="text-center">
+            Acciones
+          </th>
+        </tr>
+        <tr ng-repeat="card in ssCtrl.cards">
+          <td>
+            {{card.number}}
+          </td>
+          <td>
+            {{card.name}}
+          </td>
+          <td class="text-center">
+            {{card.type}}
+          </td>
+          <td class="text-center">
+            <button type="button" class="text-btn" ng-click="ssCtrl.EditCard(card)">
+              <i class="far fa-edit"></i>
+              Editar
+            </button>
+            <button type="button" class="text-btn" ng-click="ssCtrl.DeleteCard(card)">
+              <i class="far fa-trash-alt"></i>
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

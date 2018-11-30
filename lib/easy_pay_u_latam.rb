@@ -1,5 +1,11 @@
 require "easy_pay_u_latam/engine"
 require "easy_pay_u_latam/Configuration"
+require "easy_pay_u_latam/r_api"
+require "easy_pay_u_latam/r_api/request"
+require "easy_pay_u_latam/r_api/plan"
+require "easy_pay_u_latam/r_api/card"
+require "easy_pay_u_latam/r_api/client"
+require "easy_pay_u_latam/r_api/subscription"
 
 module EasyPayULatam
   class << self

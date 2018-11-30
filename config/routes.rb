@@ -9,6 +9,11 @@ EasyPayULatam::Engine.routes.draw do
           get "get_status"
         end
       end
+
+      resources :pay_u_cards, only: [:index, :create, :update, :destroy]
+      resources :pay_u_clients, only: [:create]
+      resources :pay_u_plans, only: [:index]
+      resources :pay_u_subscriptions, only: [:index, :show, :create, :update, :destroy]
     end
   end
 
