@@ -46,7 +46,7 @@ module EasyPayULatam
         @params.merge!({id: id}) if id
 
         http
-        @resource = @response if @response
+        @response
       end
 
       # GET Detalle del registro

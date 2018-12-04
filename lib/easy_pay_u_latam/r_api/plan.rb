@@ -55,3 +55,17 @@ module EasyPayULatam
     end
   end
 end
+
+# {"id"=>"f7bad364-29f9-4cc2-b0c1-c92e271803a1",
+#  "planCode"=>"Utopicko-plan01",
+#  "description"=>"Suscripci&oacute;n Utopicko",
+#  "accountId"=>"512321",
+#  "intervalCount"=>1,
+#  "interval"=>"MONTH",
+#  "maxPaymentsAllowed"=>12,
+#  "maxPaymentAttempts"=>0,
+#  "paymentAttemptsDelay"=>1,
+#  "maxPendingPayments"=>0,
+#
+#  "trialDays"=>0,
+#  "additionalValues"=>[{"name"=>"PLAN_VALUE", "value"=>20000, "currency"=>"COP"}]}

@@ -28,6 +28,21 @@ If you want to reference the payments to a user, you can run the following migra
 $ rails g migration AddUserReferencesToEasyPayULatamPayuPayments user:references
 ```
 
+Only run this when recurrent payments are ON, save the customer_id and default_credit_card for each user, you must run the following migration.
+```bash
+$ rails g migration AddPayUFieldsToUsers payu_default_card:string payu_customer_id:string
+```
+
+Only run this when recurrent payments are ON, extra fields for recurrent payments on payments table, you must run the following migration.
+```bash
+$ rails g migration AddRecurrentPaymentsToEasyPayULatamPayuPayments payu_plan_id:string payu_plan_code:string payu_customer_id:string payu_subscription_id:string trial_days:integer payu_credit_card_token:string  
+```
+
+If you want to keep a reference to plans, before this you must have created a plan model on your project, you can run the following migration (User only when recurrent payments are ON).
+```bash
+$ rails g migration AddPlanReferencesToPlan payu_plan_id:string payu_plan_code:string
+```
+
 Don't forget to mount Engine in your routes.rb
 ```ruby
 # config/routes.rb

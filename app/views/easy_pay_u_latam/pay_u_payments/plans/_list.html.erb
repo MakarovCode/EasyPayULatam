@@ -1,0 +1,30 @@
+<div class="my-profile-info-text" ng-show="ssCtrl.selected_plan == null">
+  <h2 class="h4">
+    <i class="fas fa-medal icon-full-blue"></i> Planes
+  </h2>
+  <br/>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12" ng-class="{'border-green': plan.id == ssCtrl.selected_plan.id}" ng-repeat="plan in ssCtrl.plans">
+      <section class="box-price">
+        <div class="header-price">
+          <h3>{{plan.name}}</h3>
+        </div>
+        <div class="content-price">
+          <h2 class="text-center">
+            {{plan.value_month | myCurrency}}
+          </h2><br/>
+          <ul style="margin-top: 28px" ng-bind-html="plan.description">
+          </ul>
+          <button type="button" class="btn-blue text-center" ng-click="ssCtrl.SelectPlan(plan)">
+            <span ng-hide="ssCtrl.actual_plan.id == plan.id">
+              Seleccionar plan
+            </span>
+            <span ng-show="ssCtrl.actual_plan.id == plan.id">
+              Plan Actual
+            </span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -62,7 +62,7 @@ module EasyPayULatam
         @url += id.to_s
         @params = params if !params.empty?
         http
-        @resource = @response if @response
+        @response
       end
 
       # override from request
@@ -91,6 +91,7 @@ module EasyPayULatam
             "line1": "Address Name",
             "postalCode": "00000",
             "city": "City Name",
+            "state": "State Name",
             "country": "CO",
             "phone": "300300300"
           }
