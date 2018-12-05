@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bootstrap-sass", '>= 3.3.6'
   s.add_dependency "sass-rails", '>= 5.0'
   s.add_dependency "angularjs-rails"
-  s.add_dependency 'rails-assets-sweetalert2', '~> 5.1.1'
+  s.add_dependency 'rails-assets-sweetalert2'
   s.add_dependency 'sweet-alert2-rails'
 
   s.add_development_dependency "pg", '>= 0.21.0'
