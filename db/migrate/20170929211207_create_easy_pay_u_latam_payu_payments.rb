@@ -50,7 +50,7 @@ class CreateEasyPayULatamPayuPayments < ActiveRecord::Migration[5.0]
       t.integer :attempts
       t.string :merchant_id
       t.string :exchange_rate
-      t.string :ip
+      t.string :reference_recurring_payment
 
       t.timestamps
     end

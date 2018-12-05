@@ -8,10 +8,10 @@
       <%= render "easy_pay_u_latam/pay_u_payments/cards/form" %>
     </div>
     <div class="col-md-12">
-      <div class="alert alert-warning" ng-if="ssCtrl.cards.length == 0">
+      <div class="alert alert-warning" ng-show="ssCtrl.cards.length == 0">
         <strong>Información: </strong> No tienes medio de pagos creados, da click en <b>Nueva tarjeta</b> para crearlos.
       </div>
-      <table class="table" ng-if="ssCtrl.cards.length > 0">
+      <table class="table" ng-show="ssCtrl.cards.length > 0">
         <tr>
           <th>
             Número de tajeta
@@ -38,7 +38,7 @@
             {{card.type}}
           </td>
           <td class="text-center">
-            <button type="button" class="text-btn pull-right" ng-click="ssCtrl.DeleteCard(card)">
+            <button type="button" class="text-btn pull-right" ng-click="ssCtrl.DeleteCard(card)" ng-if="card.token != ssCtrl.user_default_card">
               <i class="far fa-trash-alt"></i>
               Eliminar
             </button>

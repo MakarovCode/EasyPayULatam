@@ -5,10 +5,10 @@
   <br/>
   <div class="row">
     <div class="col-md-12">
-      <div class="alert alert-warning" ng-if="ssCtrl.subscriptions.length == 0">
+      <div class="alert alert-warning" ng-show="ssCtrl.subscriptions.length == 0">
         <strong>Información: </strong> Aún no tienes facturas para mostrar.
       </div>
-      <table class="table" ng-if="ssCtrl.subscriptions.length > 0">
+      <table class="table" ng-show="ssCtrl.subscriptions.length > 0">
         <tr>
           <th>
             Orden Id
@@ -28,10 +28,10 @@
         </tr>
         <tr ng-repeat="sub in ssCtrl.subscriptions">
           <td>
-            {{sub.orderId}} {{sub.subscriptionId}}
+            {{sub.reference_code}}
           </td>
           <td class="text-center">
-            {{sub.state}}
+            {{sub.response_message_pol}}
           </td>
           <td class="text-right">
             {{sub.amount | myCurrency}}
@@ -40,7 +40,7 @@
             {{sub.currency}}
           </td>
           <td class="text-center">
-            {{ssCtrl.IntToDate(sub.dateCharge)}}
+            {{sub.created_at}}
           </td>
         </tr>
       </table>

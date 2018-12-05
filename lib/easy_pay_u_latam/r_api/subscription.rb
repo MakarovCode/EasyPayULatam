@@ -10,7 +10,7 @@ module EasyPayULatam
         # @callback_url = callback_url
         @params = {}
         return if @customer.nil?
-        load("")
+        # load("")
       end
 
       def invoice_url

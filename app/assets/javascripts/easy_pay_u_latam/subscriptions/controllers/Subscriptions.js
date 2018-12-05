@@ -7,6 +7,8 @@
     //Atributos de Planes
     this.actual_plan = null;
     this.selected_plan = null;
+    this.last_payment = null;
+    this.is_buyer = false;
     this.plans = [];
 
     //Atributos de Subscripciones
@@ -37,9 +39,13 @@
       width: 500 //optional
     };
 
-    this.init = function(uuid, token, plans){
+    this.init = function(uuid, token, plans, is_buyer, last_payment, actual_plan){
       this.user_uuid = uuid;
       this.user_token = token;
+      this.is_buyer = is_buyer;
+      this.last_payment = last_payment;
+      this.actual_plan = actual_plan;
+
       this.ClearCard();
       this.GetClient();
       //No tengo ni idea porque me toco hacer eso pero sin el timeout simplemente el ng-repeat no renderiza plans
@@ -296,6 +302,7 @@
         subscription: {
           quantity: "1",
           installments: "1",
+          immediatePayment: true,
           trialDays: "15",
           customer: {
             id: "",
@@ -318,9 +325,12 @@
           self.subscription_loading = false;
           //Mirar si se muestra alerta y se fuerza un refresh
           //O recirbir respuesta json y actualizar variables necesarias desde el API
+          swal("Información", "Estamos procesando tu pago", "success");
+          window.location.reload();
         },
         function(res, status){
           self.subscription_loading = false;
+          swal("Información", res.data.message, "warning");
         }
       );
     }
@@ -348,11 +358,14 @@
             $http.delete("/easy_pay_u_latam/api/v1/pay_u_subscriptions/0000.json", {params: params}).then(
               function(res, status){
                 self.subscription_loading = false;
+                swal("Información", res.data.message, "success");
+                window.location.reload();
                 //Mirar si se muestra alerta y se fuerza un refresh
                 //O recirbir respuesta json y actualizar variables necesarias desde el API
               },
               function(res, status){
                 self.subscription_loading = false;
+                swal("Información", res.data.message, "warning");
               }
             );
           });

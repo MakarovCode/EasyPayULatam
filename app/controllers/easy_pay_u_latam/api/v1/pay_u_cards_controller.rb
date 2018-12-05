@@ -8,7 +8,7 @@ module EasyPayULatam
       cards = RApi::Card.new client
       unless cards.response["creditCardList"].blank?
         if cards.response["creditCardList"].count == 1
-          if current_user.payu_default_card = cards.response["creditCardList"][0]["token"]
+          if current_user.payu_default_card != cards.response["creditCardList"][0]["token"]
             current_user.update_attribute :payu_default_card, cards.response["creditCardList"][0]["token"]
           end
         end
@@ -43,8 +43,9 @@ module EasyPayULatam
       #validat si tiene subscripciones y actualizar subscricion
 
       subs = RApi::Subscription.new client
+
       unless subs.response.blank?
-        unless subs.response["creditCardList"].empty?
+        if !subs.response["creditCardList"].nil? && !subs.response["creditCardList"].empty?
           res = subs.update({"creditCardToken": params[:id]})
 
           unless subs.response.blank?
