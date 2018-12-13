@@ -27,6 +27,8 @@ module EasyPayULatam
 
       if !current_user.last_payment.nil? && current_user.last_payment.end_date > Date.today
         subs.params["trialDays"] = (current_user.last_payment.end_date - Date.today).to_i
+      elsif current_user.last_payment.nil?
+        subs.params["trialDays"] = @plan.trial_days.blank? ? 0 : @plan.trial_days
       end
 
       subs.params["notifyUrl"] = "#{@payUConfig.get_root_url}/easy_pay_u_latam/api/v1/pay_u_payments/#{ @payu_payment.id}/confirmation.json?user_id=#{current_user.id}"
@@ -68,6 +70,7 @@ module EasyPayULatam
 
     def generate_payment(plan_code)
       plan = Plan.actives.find_by_payu_plan_code plan_code
+      @plan = plan
       # period_moths = 1 if plan.interval.downcase == "day"
       period_moths = 1 if plan.interval.downcase == "month"
       period_moths = 6 if plan.interval.downcase == "semester"
