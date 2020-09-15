@@ -14,6 +14,7 @@ EasyPayULatam::Engine.routes.draw do
       resources :pay_u_clients, only: [:create]
       resources :pay_u_plans, only: [:index]
       resources :pay_u_subscriptions, only: [:index, :show, :create, :update, :destroy]
+      resources :pay_u_additional_charges, only: [:create, :destroy]
     end
   end
 

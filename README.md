@@ -68,6 +68,15 @@ EasyPayULatam.configure do |config|
   #Pay U will consume a Web Service and it can not be in localhost, you most use something like ngrok
   config.test_root_url = "ROOT URL FOR TESTING"
   config.currency_precision = 2 #By default is 0 for colombian peso
+  config.testing = true #Set false in production
+end
+
+# This keys are different, the recursive API use other keys
+EasyPayULatam::RApi.configure do |config|
+  config.api_login  = 'YOUR KEY'
+  config.api_key    = 'YOUR KEY'
+  config.account_id = 'YOUR PAY U ACCOUNT ID'
+  config.sandbox   = true #Set false in production
 end
 ```
 

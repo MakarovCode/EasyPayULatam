@@ -4,15 +4,14 @@ module EasyPayULatam
     acts_as_token_authentication_handler_for User
 
     def index
-      render status: 200, json: {subscriptions: current_user.all_payments.first(30)}
-      # client = RApi::Client.new current_user.pay_u_costumer_id
-      # subs = RApi::Subscription.new client
-      #
-      # unless subs.response["recurringBillList"].blank?
-      #   render status: 200, json: {subscriptions: subs.response["recurringBillList"].last(30)}
-      # else
-      #   render status: 200, json: {subscriptions: []}
-      # end
+      client = RApi::Client.new current_user.pay_u_costumer_id
+      subs = RApi::Subscription.new client
+
+      unless subs.response["recurringBillList"].blank?
+        render status: 200, json: {subscriptions: current_user.all_payments.first(30), subscriptions_api: subs.response["recurringBillList"].last(30)}
+      else
+        render status: 200, json: {subscriptions: [], subscriptions_api: []}
+      end
     end
 
     def create

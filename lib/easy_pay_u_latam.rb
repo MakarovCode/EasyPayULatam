@@ -6,6 +6,7 @@ require "easy_pay_u_latam/r_api/plan"
 require "easy_pay_u_latam/r_api/card"
 require "easy_pay_u_latam/r_api/client"
 require "easy_pay_u_latam/r_api/subscription"
+require "easy_pay_u_latam/r_api/additional_charge"
 
 module EasyPayULatam
   class << self

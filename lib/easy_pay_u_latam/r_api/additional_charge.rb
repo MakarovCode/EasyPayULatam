@@ -1,11 +1,12 @@
 module EasyPayULatam
   module RApi
-    class Subscription < Request
-      attr_reader :url, :plan, :customer, :card
+    class AdditionalCharge < Request
+      attr_reader :url, :plan, :customer, :card, :sub_id
       attr_accessor :resource, :params
 
-      def initialize(customer)
+      def initialize(customer, sub_id)
         @customer = customer
+        @sub_id = sub_id
         @customer = customer.response if !customer.nil?
         # @callback_url = callback_url
         @params = {}
@@ -13,21 +14,21 @@ module EasyPayULatam
         # load("")
       end
 
-      def invoice_url
-        @url = RApi.base_url + "/rest/v4.9/recurringBill?customerId=#{@customer['id']}"
+      def create_url
+        @url = RApi.base_url + "/rest/v4.9/subscriptions/#{@sub_id}/recurringBillItems}"
       end
 
       def url
-        @url = RApi.base_url + '/rest/v4.9/subscriptions/'
+        @url = RApi.base_url + "/rest/v4.9/recurringBillItems/"
       end
 
       def create!
-        url
+        create_url
         super
       end
 
       def load(id)
-        invoice_url
+        url
         super
       end
 
