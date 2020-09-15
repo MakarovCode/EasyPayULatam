@@ -35,7 +35,7 @@ $ rails g migration AddPayUFieldsToUsers payu_default_card:string payu_customer_
 
 Only run this when recurrent payments are ON, extra fields for recurrent payments on payments table, you must run the following migration.
 ```bash
-$ rails g migration AddRecurrentPaymentsToEasyPayULatamPayuPayments payu_plan_id:string payu_plan_code:string payu_customer_id:string payu_subscription_id:string trial_days:integer payu_credit_card_token:string  
+$ rails g migration AddRecurrentPaymentsToEasyPayULatamPayuPayments payu_plan_id:string payu_plan_code:string payu_customer_id:string payu_subscription_id:string trial_days:integer payu_credit_card_token:string  additional_charges_data:string
 ```
 
 If you want to keep a reference to plans, before this you must have created a plan model on your project, you can run the following migration (User only when recurrent payments are ON).
