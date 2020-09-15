@@ -25,7 +25,7 @@ module EasyPayULatam
       addcharge = RApi::AdditionalCharge.new client, self.reference_recurring_payment
       addcharge.params = {
         "description" => params[:description],
-        "additionalValues" => {
+        "additionalValues" => [
           {
             "name" => "ITEM_VALUE",
             "value" => params[:value],
@@ -41,7 +41,7 @@ module EasyPayULatam
             "value" => "0",
             "currency" => "COP"
           }
-        }
+        ]
       }
 
       addcharge.create!
