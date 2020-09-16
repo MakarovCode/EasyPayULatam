@@ -15,11 +15,11 @@ module EasyPayULatam
       end
 
       def create_url
-        @url = RApi.base_url + "/rest/v4.9/subscriptions/#{@sub_id}/recurringBillItems}"
+        @url = RApi.base_url + "/rest/#{RApi.api_version}/subscriptions/#{@sub_id}/recurringBillItems}"
       end
 
       def url
-        @url = RApi.base_url + "/rest/v4.9/recurringBillItems/"
+        @url = RApi.base_url + "/rest/#{RApi.api_version}/recurringBillItems/"
       end
 
       def create!

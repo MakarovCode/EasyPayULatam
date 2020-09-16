@@ -28,7 +28,7 @@ module EasyPayULatam
       end
 
       def url
-        @url = RApi.base_url + '/rest/v4.9/plans/'
+        @url = RApi.base_url + "/rest/#{RApi.api_version}/plans/"
       end
 
       private

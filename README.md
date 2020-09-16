@@ -76,7 +76,8 @@ EasyPayULatam::RApi.configure do |config|
   config.api_login  = 'YOUR KEY'
   config.api_key    = 'YOUR KEY'
   config.account_id = 'YOUR PAY U ACCOUNT ID'
-  config.sandbox   = true #Set false in production
+  config.sandbox    = true #Set false in production
+  config.api_version    = "v4.3"
 end
 ```
 

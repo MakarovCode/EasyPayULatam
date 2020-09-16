@@ -3,7 +3,7 @@ module EasyPayULatam
     class << self
       require "base64"
       # NOTA: definir si dejar estos campos como accessors
-      attr_accessor :api_login, :api_key, :account_id, :sandbox
+      attr_accessor :api_login, :api_key, :account_id, :sandbox, :api_version
       attr_reader   :base_url
 
       # recibe un bloque inicializador de variables de configuración de payu como la
@@ -34,6 +34,7 @@ module EasyPayULatam
   #   config.api_key    = '4Vj8eK4rloUd272L48hsrarnUA'
   #   config.account_id = '512321'
   #   config.sandbox    = true
+  #   config.api_version    = "v4.3"
   # end
 
   # production
@@ -42,6 +43,7 @@ module EasyPayULatam
   #   config.api_key    = 'ZNl7g0L2H54Y9ZVn51keXS2l07'
   #   config.account_id = '762507'
   #   config.sandbox    = false
+  #   config.api_version    = "v4.3"
   # end
 
 end

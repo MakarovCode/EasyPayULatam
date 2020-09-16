@@ -21,13 +21,13 @@ module EasyPayULatam
 
       # llena la variable local y super con la url de este recurso
       def url
-        @url ||= RApi.base_url + "/rest/v4.9/creditCards/"
+        @url ||= RApi.base_url + "/rest/#{RApi.api_version}/creditCards/"
       end
 
       # el recurso de tarjeta necesita en algunos casos alterar la URL para incluir información
       # del customer, por eso se crea este metodo con la url necesario
       def customer_url
-        @url = RApi.base_url + "/rest/v4.9/customers/#{@customer['id']}/creditCards/"
+        @url = RApi.base_url + "/rest/#{RApi.api_version}/customers/#{@customer['id']}/creditCards/"
       end
 
       # se sobreescribe el metodo crear de request

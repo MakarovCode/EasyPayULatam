@@ -14,11 +14,11 @@ module EasyPayULatam
       end
 
       def invoice_url
-        @url = RApi.base_url + "/rest/v4.9/recurringBill?customerId=#{@customer['id']}"
+        @url = RApi.base_url + "/rest/#{RApi.api_version}/recurringBill?customerId=#{@customer['id']}"
       end
 
       def url
-        @url = RApi.base_url + '/rest/v4.9/subscriptions/'
+        @url = RApi.base_url + "/rest/#{RApi.api_version}/subscriptions/"
       end
 
       def create!

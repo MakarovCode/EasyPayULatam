@@ -34,7 +34,7 @@ module PayuLatam
     end
 
     def url
-      @url = PayuLatam.base_url + '/rest/v4.9/recurringBill'
+      @url = PayuLatam.base_url + "/rest/#{RApi.api_version}/recurringBill"
     end
 
     def customer_url
