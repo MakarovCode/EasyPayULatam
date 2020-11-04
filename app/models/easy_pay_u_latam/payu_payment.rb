@@ -44,10 +44,10 @@ module EasyPayULatam
         ]
       }
 
-      addcharge.create!
+      res = addcharge.create!
 
-      unless addcharge.response["id"].blank?
-        self.additional_charges_data = "#{self.additional_charges_data}|#{addcharge.response["id"]}·#{Date.today}"
+      unless res["id"].blank?
+        self.additional_charges_data = "#{self.additional_charges_data}|#{res["id"]}·#{Date.today}"
       end
 
       addcharge
