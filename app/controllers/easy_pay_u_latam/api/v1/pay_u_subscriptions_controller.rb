@@ -6,7 +6,7 @@ module EasyPayULatam
     def index
       client = RApi::Client.new current_user.pay_u_costumer_id
       subs = RApi::Subscription.new client
-
+      
       unless subs.response["recurringBillList"].blank?
         render status: 200, json: {subscriptions: current_user.all_payments.first(30), subscriptions_api: subs.response["recurringBillList"].last(30)}
       else

@@ -18,10 +18,10 @@ module EasyPayULatam
       self.status == PENDING
     end
 
-    def add_charge(params)
+    def add_charge(params, user)
       @payUConfig = EasyPayULatam.configuration
 
-      client = RApi::Client.new current_user.pay_u_costumer_id
+      client = RApi::Client.new user.pay_u_costumer_id
       addcharge = RApi::AdditionalCharge.new client, self.reference_recurring_payment
       addcharge.params = {
         "description" => params[:description],
@@ -62,10 +62,10 @@ module EasyPayULatam
       charges
     end
 
-    def remove_charge(id)
+    def remove_charge(id, user)
       @payUConfig = EasyPayULatam.configuration
 
-      client = RApi::Client.new current_user.pay_u_costumer_id
+      client = RApi::Client.new user.pay_u_costumer_id
       addcharge = RApi::AdditionalCharge.new client, self.reference_recurring_payment
 
       addcharge.delete id
