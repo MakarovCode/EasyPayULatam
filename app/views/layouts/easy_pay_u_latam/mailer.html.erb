@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pago recibido </title>
+  <style type="text/css">
+  #outlook a {padding:0;}
+  body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+  .ExternalClass {width:100%;}
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+  #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+  table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+  table td {border-collapse: collapse;}
+
+  @media only screen and (max-width: 640px)  {
+    body[yahoo] .deviceWidth {width:440px!important; }
+
+    body[yahoo] .full {
+      display:block;
+      width:100%;
+    }
+  }
+  </style>
+</head>
+<%# @info = Information.first %>
+<body yahoo="fix">
+  <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" width="100%">
+    <tr>
+      <td align="center">
+
+        <p align="center" style="margin-bottom: 20px;">
+          <!-- <img src="https://s3.amazonaws.com/agroneto/mailer/AGRONETO-logo.png" alt="AgroNeto" style="width: 200px;"> -->
+        </p>
+
+        <%= yield %>
+
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="600">
+          <tr>
+            <td align="center" style="padding: 30px 0;">
+              <!-- <p style="font-family: Arial, sans-serif; font-size: 14px; color: #0F6A37; margin-bottom: 25px;">
+                <a href="http://agroneto.com" style="text-decoration: none; color: #0F6A37;">
+                  AgroNeto
+                </a>
+                |
+                <a href="http://agroneto.com/terms" style="text-decoration: none; color: #0F6A37;">
+                  Términos y condiciones
+                </a>
+               </p>
+              <p style="line-height: 32px;">
+                <a href="<%#= @info.facebook_link %>">
+                  <span style="background-color: #0F6A37; padding: 9px 10px 3px 11px; margin-right: 5px;">
+                    <img src="https://s3.amazonaws.com/agroneto/mailer/facebook-icon.png" height="16" alt="" border="0" />
+                  </span>
+                </a>
+                <a href="<#%= @info.twitter_link %>">
+                  <span style="background-color: #0F6A37; padding: 9px 10px 3px 11px; margin-right: 5px;">
+                    <img src="https://s3.amazonaws.com/agroneto/mailer/twitter-icon.png" height="16" alt="" border="0" />
+                  </span>
+                </a>
+              </p> -->
+              <p style="font-family: Arial, sans-serif; font-size: 13px; color: #7b7b7b; margin-bottom: 3px;">
+                <%#= @info.copyrights_text %>
+              </p>
+              <!-- <p style="font-family: Arial, sans-serif; font-size: 12px; color: #7b7b7b; margin-top: 0;">If you don't want to receive the newsletter, you can simply <a href="http://yourlink" style="text-decoration: none; color: #69B417;">unsubscribe</a></p> -->
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag    "easy_pay_u_latam/subscriptions/application", media: "all" %>
+<%= javascript_include_tag "easy_pay_u_latam/subscriptions/application" %>
+<div id="easy_pay_u_latam">
+  <div ng-controller="SubscriptionsController as ssCtrl" ng-init="ssCtrl.init('<%= current_user.email %>', '<%= current_user.authentication_token %>', <%= Plan.actives.select(:id, :name, :value_month, :description, :payu_plan_code, :payu_plan_id).to_json%>, <%= current_user.is_buyer?%>, <%= current_user.last_payment.to_json%>, <%= current_user.plan.to_json%>)">
+    <%= render "easy_pay_u_latam/pay_u_payments/subscriptions/none" %>
+    <%= render "easy_pay_u_latam/pay_u_payments/plans/list" %>
+    <%= render "easy_pay_u_latam/pay_u_payments/subscriptions/actual" %>
+    <%= render "easy_pay_u_latam/pay_u_payments/cards/list" %>
+    <%= render "easy_pay_u_latam/pay_u_payments/subscriptions/list" %>
+    <%= render "easy_pay_u_latam/pay_u_payments/subscriptions/form" %>
+  </div>
+</div>
+<script>
+  EasyPayULatam.init();
+</script>

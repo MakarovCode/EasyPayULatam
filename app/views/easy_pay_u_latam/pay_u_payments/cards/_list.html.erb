@@ -1,0 +1,54 @@
+<div class="my-profile-info-text" ng-init="ssCtrl.user_default_card = '<%= current_user.payu_default_card %>'">
+  <h2 class="h4">
+    <i class="fas fa-credit-card icon-full-blue"></i> Medios de pago
+  </h2>
+  <br/>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-8">
+      <%= render "easy_pay_u_latam/pay_u_payments/cards/form" %>
+    </div>
+    <div class="col-md-12">
+      <div class="alert alert-warning" ng-show="ssCtrl.cards.length == 0">
+        <strong>Información: </strong> No tienes medio de pagos creados, da click en <b>Nueva tarjeta</b> para crearlos.
+      </div>
+      <table class="table" ng-show="ssCtrl.cards.length > 0">
+        <tr>
+          <th>
+            Número de tajeta
+          </th>
+          <th>
+            Nombre
+          </th>
+          <th class="text-center">
+            Tipo
+          </th>
+          <th class="text-center">
+            Acciones
+          </th>
+        </tr>
+        <tr ng-repeat="card in ssCtrl.cards">
+          <td>
+            {{card.number}}
+            <span class="label label-primary" ng-if="card.token == ssCtrl.user_default_card">Primaria</span>
+          </td>
+          <td>
+            {{card.name}}
+          </td>
+          <td class="text-center">
+            {{card.type}}
+          </td>
+          <td class="text-center">
+            <button type="button" class="text-btn pull-right" ng-click="ssCtrl.DeleteCard(card)" ng-if="card.token != ssCtrl.user_default_card">
+              <i class="far fa-trash-alt"></i>
+              Eliminar
+            </button>
+            <button type="button" class="text-btn pull-right" ng-click="ssCtrl.MarkAsPrimaryCard(card)" ng-if="card.token != ssCtrl.user_default_card">
+              <i class="far fa-star"></i>
+              Marcar como primaria
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

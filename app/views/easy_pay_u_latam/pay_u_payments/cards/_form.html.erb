@@ -1,0 +1,81 @@
+<!-- <div class="row"> -->
+  <div class="col-md-4 col-md-offset-6">
+    <div class="btn-group-vertical" style="margin-bottom: 10px;">
+      <button type="button" class="btn btn-block secundary-btn pull-right" style="font-size: 16px; margin-right: 15px" data-toggle="modal" data-target="#new-credit-card-modal">
+        <span>Nueva tarjeta</span>
+      </button>
+    </div>
+  </div>
+<!-- </div> -->
+
+<div class="modal fade" id="new-credit-card-modal" tabindex="-1" role="dialog" aria-labelledby="new-credit-card-modalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="new-credit-card-modalLabel">Formulario de tarjeta de crédito</h4>
+      </div>
+      <div class="modal-body">
+        <div id="card-container" style="margin-top: 40px; margin-bottom: 80px;"></div>
+        <form action="#" name="cardForm" data-card data-width="500" data-card-container="#card-container" data-placeholders="ssCtrl.cardPlaceholders" data-options="ssCtrl.cardOptions" data-messages="ssCtrl.cardMessages">
+
+          <div class="row" style="margin-top: 20px; padding-left: 40px; padding-right: 40px;">
+            <div class="col-md-6">
+              <input class="form-control input-lg" placeholder="Nombre" type="text" name="CardName" card-name data-ng-model="ssCtrl.card.name" ng-required="true"/>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control input-lg" placeholder="Documento" type="text" name="Document" data-ng-model="ssCtrl.card.document" ng-required="true"/>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 20px; padding-left: 40px; padding-right: 40px;">
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="Número de tarjeta" type="text" name="CardNumber" card-number data-ng-model="ssCtrl.card.number" ng-required="true"/>
+            </div>
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="MM / YYYY" type="text" name="CardExpiry" card-expiry data-ng-model="ssCtrl.card.expiry" ng-required="true"/>
+            </div>
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="CVC" type="text" name="CardCvc" card-cvc data-ng-model="ssCtrl.card.cvc" ng-required="true"/>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 20px; padding-left: 40px; padding-right: 40px;">
+            <div class="col-md-4">
+              <select class="form-control input-lg" name="CardCountry" ng-model="ssCtrl.card.address.country" pvp-country-picker ng-required="true"></select>
+            </div>
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="Estado/Departamento" type="text" name="CardState" data-ng-model="ssCtrl.card.address.state" ng-required="true"/>
+            </div>
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="Ciudad" type="text" name="CardCity" data-ng-model="ssCtrl.card.address.city" ng-required="true"/>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 20px; padding-left: 40px; padding-right: 40px;">
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="Dirección" type="text" name="CardAddress" data-ng-model="ssCtrl.card.address.line1" ng-required="true"/>
+            </div>
+            <div class="col-md-4">
+              <input class="form-control input-lg" placeholder="Teléfono" type="text" name="CardPhone" data-ng-model="ssCtrl.card.address.phone" ng-required="true"/>
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="ssCtrl.ClearCard()">
+                Limpiar
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="ssCtrl.CreateCards()" ng-disabled="cardForm.$invalid || ssCtrl.card_loading == true">
+          <span ng-show="ssCtrl.card_loading == false">
+            Guardar
+          </span>
+          <span ng-hide="ssCtrl.card_loading == false">
+            <i class="fas fa-circle-notch fa-spin vertical-middle"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="my-profile-info-text">
+  <h2 class="h4">
+    <i class="fas fa-credit-card icon-full-blue"></i> Histórico de facturación
+  </h2>
+  <br/>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-warning" ng-show="ssCtrl.subscriptions.length == 0">
+        <strong>Información: </strong> Aún no tienes facturas para mostrar.
+      </div>
+      <table class="table" ng-show="ssCtrl.subscriptions.length > 0">
+        <tr>
+          <th>
+            Orden Id
+          </th>
+          <th class="text-center">
+            Estado
+          </th>
+          <th class="text-right">
+            Precio
+          </th>
+          <th class="text-center">
+            Moneda
+          </th>
+          <th class="text-center">
+            Fecha de cobro
+          </th>
+        </tr>
+        <tr ng-repeat="sub in ssCtrl.subscriptions">
+          <td>
+            {{sub.reference_code}}
+          </td>
+          <td class="text-center">
+            {{sub.response_message_pol}}
+          </td>
+          <td class="text-right">
+            {{sub.amount | myCurrency}}
+          </td>
+          <td class="text-center">
+            {{sub.currency}}
+          </td>
+          <td class="text-center">
+            {{sub.created_at}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

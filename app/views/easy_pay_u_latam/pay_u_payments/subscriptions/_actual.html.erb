@@ -1,0 +1,60 @@
+<div class="my-profile-info-text" ng-hide="ssCtrl.actual_plan == null">
+  <h2 class="h4">
+    <i class="fas fa-medal icon-full-blue"></i> Membresía y facturación
+  </h2>
+  <br/>
+  <div class="row">
+    <div class="col-md-8">
+      <p class="h6">
+        Plan actual:
+        <span ng-show="ssCtrl.subscription_loading != true">
+          {{ssCtrl.actual_plan.name}}
+          <small ng-show="ssCtrl.last_payment.state_pol == '4'">
+            (Renovación automática)
+          </small>
+          <small ng-show="ssCtrl.last_payment.state_pol == '-1'">
+            (Renovación manual)
+          </small>
+        </span>
+        <span ng-show="ssCtrl.subscription_loading == true">
+          <i class="fas fa-circle-notch fa-spin vertical-middle"></i>
+        </span>
+      </p>
+      <p class="h6">
+        Fecha de inicio: {{ssCtrl.last_payment.start_date}}
+      </p>
+      <p class="h6">
+        Fecha de corte: {{ssCtrl.last_payment.end_date}}
+      </p>
+      <p class="h6" ng-show="ssCtrl.last_payment.number_card != null">
+        Medio de pago: {{ssCtrl.last_payment.number_card}}
+      </p>
+      <p class="h6" ng-show="ssCtrl.selected_plan != null">
+        <span class="label label-info" style="font-size: 14px;">
+          Nuevo plan seleccionado: {{ssCtrl.selected_plan.name}}
+        </span>
+        <br>
+        <br>
+        <button type="button" class="btn secundary-btn" style="font-size: 16px; margin-right: 15px" ng-click="ssCtrl.SelectPlan(ssCtrl.selected_plan)">
+          <span>Pagar</span>
+        </button>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-group-vertical">
+        <!-- <button type="button" class="btn secundary-btn pull-right" style="font-size: 16px; margin-right: 15px" ng-click="ssCtrl.ChangePlan();">
+          <span>Cambiar plan</span>
+        </button> -->
+        <!-- <button type="button" class="btn secundary-btn pull-right" style="font-size: 16px; margin-right: 15px">
+          <span>Actualizar información de pagos</span>
+        </button>
+        <button type="button" class="btn secundary-btn pull-right" style="font-size: 16px; margin-right: 15px">
+          <span>Detalles de facturación</span>
+        </button> -->
+        <button type="button" class="btn secundary-btn pull-right" style="font-size: 16px; margin-right: 15px" ng-show="ssCtrl.actual_plan != null" ng-click="ssCtrl.DeleteSubscription();">
+          <span>Cancelar membresía</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
